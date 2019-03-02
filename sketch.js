@@ -5,7 +5,7 @@ let WINDDIMENSION;
 let MAXRAGGIO = 20;
 let MINRAGGIO = 10;
 let SPAN = 3;
-let CELLS = 3;
+let CELLS = 10;
 let DEBUG = true;
 
 let gravity;
@@ -101,7 +101,7 @@ function draw() {
   y = random(40, 50);
   let v = createVector(x, y)
   let crea = true;
-  if (true % 1 == 0) {
+  if (crea % 1 == 0) {
     for (let i = 0; i < particles.length; i++) {
       if (v.dist(particles[i].pos) < (particles[i].Raggio * 2) || particles.length >= numparticles) {
         crea = false;
@@ -112,13 +112,9 @@ function draw() {
       particles.push(p);
     }
   }
-
-
-
   if (particles.length > numparticles) {
     particles.splice(0, 1);
   }
-
   for (let i = 0; i < particles.length; i++) {
     if (particles[i].offScreen()) {
       particles.splice(i, 1);
@@ -133,6 +129,4 @@ function draw() {
   for (let i = 0; i < obstacles.length; i++) {
     obstacles[i].show();
   }
-
-
 }
