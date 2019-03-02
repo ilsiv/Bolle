@@ -16,6 +16,7 @@ function setup() {
   // var canvas = createCanvas(400, 600);
   var canvas = createCanvas(windowWidth, windowHeight);
   canvas.id('sketch-container');
+pixelDensity(displayDensity());
   //noLoop();
   fullscreen();
   //frameRate(10);
