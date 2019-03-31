@@ -1,6 +1,6 @@
 class ParticleSystem {
-  int MAXBALL = 40;
-  float c = 0.11;
+  int MAXBALL = (width/100)*(height/100);
+  float c = 0.010;
 
   ArrayList<Particle> particles;
 
@@ -25,10 +25,14 @@ class ParticleSystem {
       p.checkBorders();
     }
     for (Particle p : particles) {
-      p.update();
+      p.checkCollision(particles);
     }
     for (Particle p : particles) {
-      p.checkCollision(particles);
+      p.repel(particles);
+    }
+
+    for (Particle p : particles) {
+      p.update();
     }
   }
 
